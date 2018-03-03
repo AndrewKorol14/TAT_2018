@@ -16,9 +16,16 @@ namespace TaskDEV1
                 Console.WriteLine("Exception message: method must get only one string.");
                 return;
             }
+
+            if (args[0] == "")
+            {
+                Console.WriteLine("Exception message: string hasn't any symbols.");
+                return;
+            }
             MaxNumberSerialSymbols EntryPointObject = new MaxNumberSerialSymbols();
             Console.WriteLine("Max number of symbols: "+EntryPointObject.FindMaxNumberSymbols(args[0]));
         }
+
         /// <summary>
         /// Method FindMaxNumberSymbols
         /// searches maximum number of same serial symbols in the string
