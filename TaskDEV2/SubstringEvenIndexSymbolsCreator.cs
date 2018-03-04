@@ -30,10 +30,10 @@ namespace TaskDEV2
         /// <returns>Substring with even index symbols</returns>
         public string CreateSubstringFromOddSymbols()
         {
-            StringBuilder changingString = new StringBuilder(stringForNewSubstring);
-            for (int i = 1; i < changingString.Length; i++) //when symbols with even index are deleted, symbols of the string shifts on one index 
+            StringBuilder changingString = new StringBuilder();
+            for (int i = 0; i < stringForNewSubstring.Length; i+=2)  
             {
-                changingString.Remove(i, 1); 
+                changingString.Append(stringForNewSubstring[i]); 
             }
             return changingString.ToString(); 
         }

@@ -10,7 +10,7 @@ namespace TaskDEV2
     {
         static void Main(string[] args)
         {
-            var enteredString = Console.ReadLine();
+            string enteredString = Console.ReadLine();
             if (string.IsNullOrEmpty(enteredString))
             {
                 Console.WriteLine("Exception message: string hasn't any symbols.");
