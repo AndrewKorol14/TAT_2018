@@ -11,13 +11,14 @@ namespace TaskDEV2
         static void Main(string[] args)
         {
             var enteredString = Console.ReadLine();
-            if (enteredString == "")
+            if (string.IsNullOrEmpty(enteredString))
             {
                 Console.WriteLine("Exception message: string hasn't any symbols.");
                 return;
             }
-            EvenIndexSymbols EvenIndexString = new EvenIndexSymbols();
-            Console.WriteLine(EvenIndexString.DeleteSymbolsWithOddIndex(enteredString));
+            SubstringEvenIndexSymbolsCreator EvenIndexSubstring = new SubstringEvenIndexSymbolsCreator(enteredString);
+            Console.Write("Substring: ");
+            Console.WriteLine(EvenIndexSubstring.CreateSubstringFromOddSymbols());
         }
     }
 }
