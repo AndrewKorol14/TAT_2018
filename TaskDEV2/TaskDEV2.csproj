@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6C40EB4-259E-497F-8CF0-A2B161B29901}</ProjectGuid>
+    <ProjectGuid>{DD77277C-A03B-4891-ADFE-43FA9D8378CD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TaskDEV1</RootNamespace>
-    <AssemblyName>TaskDEV1</AssemblyName>
+    <RootNamespace>TaskDEV2</RootNamespace>
+    <AssemblyName>TaskDEV2</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DEV1.cs" />
+    <Compile Include="SubstringEvenIndexSymbolsCreator.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
