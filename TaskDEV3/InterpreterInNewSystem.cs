@@ -8,10 +8,10 @@ namespace TaskDEV3
     /// </summary>
     public class InterpreterInNewSystem
     {
-        int numberInOldSystem;
-        int numeralSystemBase;
+        uint numberInOldSystem;
+        uint numeralSystemBase;
 
-        public InterpreterInNewSystem(int oldSystemNumber, int systemBase)
+        public InterpreterInNewSystem(uint oldSystemNumber, uint systemBase)
         {
             numberInOldSystem = oldSystemNumber;
             numeralSystemBase = systemBase;
@@ -24,7 +24,7 @@ namespace TaskDEV3
         public string CreateNumberInNewNumeralSystem()
         {
             StringBuilder newSystemNumberString = new StringBuilder();
-            int tempDivisionRemainder;
+            uint tempDivisionRemainder;
             do
             {
                 tempDivisionRemainder = numberInOldSystem % numeralSystemBase;
