@@ -36,7 +36,7 @@ namespace TaskDEV3
                 }
                 else
                 {
-                    char tempCharSymbol = (char)(tempDivisionRemainder + '7'); 
+                    char tempCharSymbol = (char)('A' + tempDivisionRemainder - 10); 
                     newSystemNumberString.Append(tempCharSymbol.ToString());
                 }
             } while (numberInOldSystem > 0);
@@ -50,9 +50,9 @@ namespace TaskDEV3
         /// <returns>Normal string</returns>
         public string ReverseNumberInNewSystem(string stringArgument)
         {
-            char[] charArrayForReverse=stringArgument.ToCharArray();
-            Array.Reverse(charArrayForReverse);
-            return new string(charArrayForReverse);
+            char[] reverseString=stringArgument.ToCharArray();
+            Array.Reverse(reverseString);
+            return new string(reverseString);
         }
     }
 }
