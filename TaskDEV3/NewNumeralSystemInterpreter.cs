@@ -4,23 +4,21 @@ using System.Text;
 namespace TaskDEV3
 {
     /// <summary>
-    /// Class NewNumeralSystemInterpreter
-    /// interprets decimal number in other numeral system
+    /// Interprets decimal number in other numeral system
     /// </summary>
     public class NewNumeralSystemInterpreter
     {
         int numberInOldSystem;
         int numeralSystemBase;
 
-        public NewNumeralSystemInterpreter(int oldSystemNumberArgument, int systemBaseArgument)
+        public NewNumeralSystemInterpreter(int oldSystemNumber, int systemBase)
         {
-            numberInOldSystem = oldSystemNumberArgument;
-            numeralSystemBase = systemBaseArgument;
+            numberInOldSystem = oldSystemNumber;
+            numeralSystemBase = systemBase;
         }
 
         /// <summary>
-        /// Method CreateNumberInNewNumeralSystem
-        /// represents decimal number in new numeral system
+        /// Represents decimal number in new numeral system
         /// </summary>
         /// <returns>Backward string of number in new system</returns>
         public string CreateNumberInNewNumeralSystem()
@@ -46,8 +44,7 @@ namespace TaskDEV3
         }
 
         /// <summary>
-        /// Method ReverseNumberInNewSystem
-        /// reverses backward string
+        /// Reverses backward string
         /// </summary>
         /// <param name="stringArgument">Backward string</param>
         /// <returns>Normal string</returns>

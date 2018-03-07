@@ -3,8 +3,7 @@
 namespace TaskDEV3
 {
     /// <summary>
-    /// Class EntryPoint
-    /// must get two string arguments, else process exceptions
+    /// Must get two string arguments, else process exceptions
     /// </summary>
     class EntryPoint
     {
@@ -17,10 +16,9 @@ namespace TaskDEV3
             }
             catch(FormatException)
             {
-                Console.WriteLine("Exception message: string of decimal number or string of base new numeral system contains wrong symbols or null.");
+                Console.WriteLine("Exception message: strings contain wrong symbols or null.");
                 return;
             }
-
             if (Convert.ToInt16(args[1])<2||Convert.ToInt16(args[1])>20)
             {
                 Console.WriteLine("Exception message: wrong base of new numeral system.");
