@@ -6,12 +6,12 @@ namespace TaskDEV3
     /// <summary>
     /// Interprets decimal number in other numeral system
     /// </summary>
-    public class NewNumeralSystemInterpreter
+    public class InterpreterInNewSystem
     {
         int numberInOldSystem;
         int numeralSystemBase;
 
-        public NewNumeralSystemInterpreter(int oldSystemNumber, int systemBase)
+        public InterpreterInNewSystem(int oldSystemNumber, int systemBase)
         {
             numberInOldSystem = oldSystemNumber;
             numeralSystemBase = systemBase;
@@ -31,12 +31,12 @@ namespace TaskDEV3
                 numberInOldSystem = numberInOldSystem / numeralSystemBase;
                 if (tempDivisionRemainder < 10)
                 {
-                    char tempCharSymbol = (char)(tempDivisionRemainder + 48); //using ASCII table, for choosing next numeral in the number of new numeral system
+                    char tempCharSymbol = (char)(tempDivisionRemainder + '0'); 
                     newSystemNumberString.Append(tempCharSymbol.ToString());
                 }
                 else
                 {
-                    char tempCharSymbol = (char)(tempDivisionRemainder + 55); //using ASCII table, for choosing next numeral in the number of new numeral system
+                    char tempCharSymbol = (char)(tempDivisionRemainder + '7'); 
                     newSystemNumberString.Append(tempCharSymbol.ToString());
                 }
             } while (numberInOldSystem > 0);

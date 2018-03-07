@@ -24,7 +24,7 @@ namespace TaskDEV3
                 Console.WriteLine("Exception message: wrong base of new numeral system.");
                 return;
             }
-            NewNumeralSystemInterpreter newSystemNumber = new NewNumeralSystemInterpreter(Int32.Parse(args[0]), Int32.Parse(args[1]));
+            InterpreterInNewSystem newSystemNumber = new InterpreterInNewSystem(Int32.Parse(args[0]), Int32.Parse(args[1]));
             Console.Write("Number in new numeral system: ");
             Console.WriteLine(newSystemNumber.ReverseNumberInNewSystem(newSystemNumber.CreateNumberInNewNumeralSystem()));
         }
