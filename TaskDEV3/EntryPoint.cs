@@ -10,22 +10,14 @@ namespace TaskDEV3
     {
         static void Main(string[] args)
         {
-            if(args.Length!=2)
+            try
             {
-                Console.WriteLine("Exception message: wrong number of arguments(should be two arguments).");
-                return;
+                int tempDecimalNumber = Int32.Parse(args[0]);
+                int tempSystemBase = Int32.Parse(args[1]);
             }
-
-            if (args[0]==String.Empty||args[1]==String.Empty)
+            catch(FormatException)
             {
-                Console.WriteLine("Exception message: something string hasn't any symbols.");
-                return;
-            }
-
-            int checkingNumber;
-            if (!Int32.TryParse(args[0], out checkingNumber)||!Int32.TryParse(args[1], out checkingNumber))
-            {
-                Console.WriteLine("Exception message: string of decimal number or string of base new numeral system contains wrong symbols.");
+                Console.WriteLine("Exception message: string of decimal number or string of base new numeral system contains wrong symbols or null.");
                 return;
             }
 
