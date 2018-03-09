@@ -4,14 +4,14 @@ using System.Text;
 namespace TaskDEV3
 {
     /// <summary>
-    /// Interprets decimal number in other numeral system
+    /// Converts decimal number in other numeral system
     /// </summary>
-    public class InterpreterInNewSystem
+    public class ConverterInNewSystem
     {
         uint numberInOldSystem;
         uint numeralSystemBase;
 
-        public InterpreterInNewSystem(uint oldSystemNumber, uint systemBase)
+        public ConverterInNewSystem(uint oldSystemNumber, uint systemBase)
         {
             numberInOldSystem = oldSystemNumber;
             numeralSystemBase = systemBase;
