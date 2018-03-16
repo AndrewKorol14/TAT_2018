@@ -23,6 +23,10 @@ namespace TaskDEV3
         /// <returns>Backward string of number in new system</returns>
         public string CreateNumberInNewNumeralSystem()
         {
+            if (numeralSystemBase < 2 || numeralSystemBase > 20)
+            {
+                throw new ArgumentOutOfRangeException("Exception message: wrong base of new numeral system.");
+            }
             StringBuilder newSystemNumberString = new StringBuilder();
             uint tempDivisionRemainder;
             do
