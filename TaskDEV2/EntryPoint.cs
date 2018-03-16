@@ -10,15 +10,16 @@ namespace TaskDEV2
     {
         static void Main(string[] args)
         {
-            string enteredString = Console.ReadLine();
-            if (string.IsNullOrEmpty(enteredString))
+            try
             {
-                Console.WriteLine("Exception message: string hasn't any symbols.");
-                return;
+                string enteredString = Console.ReadLine();
+                SubstringEvenIndexSymbolsCreator EvenIndexSubstring = new SubstringEvenIndexSymbolsCreator(enteredString);
+                Console.WriteLine(EvenIndexSubstring.CreateSubstringFromOddSymbols());
             }
-            SubstringEvenIndexSymbolsCreator EvenIndexSubstring = new SubstringEvenIndexSymbolsCreator(enteredString);
-            Console.Write("Substring: ");
-            Console.WriteLine(EvenIndexSubstring.CreateSubstringFromOddSymbols());
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

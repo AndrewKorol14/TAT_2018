@@ -30,6 +30,10 @@ namespace TaskDEV2
         /// <returns>Substring with even index symbols</returns>
         public string CreateSubstringFromOddSymbols()
         {
+            if (string.IsNullOrEmpty(stringForNewSubstring))
+            {
+                throw new System.ArgumentException("Exception message: string hasn't any symbols.");
+            }
             StringBuilder changingString = new StringBuilder();
             for (int i = 0; i < stringForNewSubstring.Length; i+=2)  
             {
