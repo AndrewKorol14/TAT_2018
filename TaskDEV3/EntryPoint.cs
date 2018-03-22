@@ -13,12 +13,7 @@ namespace TaskDEV3
             {
                 uint tempDecimalNumber = UInt32.Parse(args[0]);
                 uint tempSystemBase = UInt32.Parse(args[1]);
-                if (tempSystemBase < 2 || tempSystemBase > 20)
-                {
-                    throw new ArgumentOutOfRangeException("Exception message: wrong base of new numeral system.");
-                }
                 ConverterInNewSystem newSystemNumber = new ConverterInNewSystem(UInt32.Parse(args[0]), UInt32.Parse(args[1]));
-                Console.Write("Number in new numeral system: ");
                 Console.WriteLine(newSystemNumber.ReverseNumberInNewSystem(newSystemNumber.CreateNumberInNewNumeralSystem()));
             }
             catch(FormatException)
