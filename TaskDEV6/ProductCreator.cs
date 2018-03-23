@@ -12,7 +12,14 @@ namespace TaskDEV6
         string nameOfProduct;
         int quantityOfProducts;
         double priceOfProduct;
-        
+
+        /// <summary>
+        /// Create object and check exceptions
+        /// </summary>
+        /// <param name="typeOfProduct">String of type</param>
+        /// <param name="nameOfProduct">String of name</param>
+        /// <param name="quantityOfProducts">String of quantity</param>
+        /// <param name="priceOfProduct">String of price</param>
         public ProductCreator(string typeOfProduct, string nameOfProduct, string quantityOfProducts, string priceOfProduct)
         {
             this.typeOfProduct = typeOfProduct;
