@@ -7,6 +7,6 @@ namespace TaskDEV6
     /// </summary>
     interface ICounter
     {
-        void CountByCommand(List<ProductCreator> list);
+        double CountByCommand(List<ProductCreator> list);
     }
 }

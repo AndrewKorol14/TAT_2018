@@ -21,9 +21,9 @@ namespace TaskDEV6
             set;
         }
 
-        public void CountByCommand(List<ProductCreator> list)
+        public double CountByCommand(List<ProductCreator> list)
         {
-            Countable.CountByCommand(productStorage);
+            return Countable.CountByCommand(productStorage);
         }
     }
 }

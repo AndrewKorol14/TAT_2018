@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CommandMenuCreatorTests.cs" />
+    <Compile Include="CounterAllTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

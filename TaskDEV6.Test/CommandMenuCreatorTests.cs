@@ -28,6 +28,5 @@ namespace TaskDEV6.Test
         {
             Assert.Throws<OverflowException>(() => new ProductCreator(actualType, actualName, actualQuantity, actualPrice));
         }
-
     }
 }

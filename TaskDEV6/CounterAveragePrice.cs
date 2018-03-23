@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace TaskDEV6
 {
@@ -7,13 +6,13 @@ namespace TaskDEV6
     ///  Redefines method of counter of average price of all products
     ///  inherited from the interface
     /// </summary>
-    class CounterAveragePrice : ICounter
+    public class CounterAveragePrice : ICounter
     {
         /// <summary>
         /// Count average price of all added products
         /// </summary>
         /// <param name="list">List of added products</param>
-        public void CountByCommand(List<ProductCreator> list)
+        public double CountByCommand(List<ProductCreator> list)
         {
             int counterAllProducts = 0;
             double priceProducts = 0;
@@ -23,7 +22,7 @@ namespace TaskDEV6
                 counterAllProducts += i.ProductQuantity;
             }
             priceProducts /= counterAllProducts;
-            Console.WriteLine(priceProducts);
+            return priceProducts;
         }
     }
 }

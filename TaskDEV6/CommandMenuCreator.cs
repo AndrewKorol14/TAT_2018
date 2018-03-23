@@ -27,21 +27,21 @@ namespace TaskDEV6
                         break;
                     case "count types":
                         store = new ProductStore(products, new CounterTypes());
-                        store.CountByCommand(products);
+                        Console.WriteLine("Number of types: " + store.CountByCommand(products));
                         break;
                     case "count all":
                         store = new ProductStore(products, new CounterAll());
-                        store.CountByCommand(products);
+                        Console.WriteLine("Number of all products: "+store.CountByCommand(products));
                         break;
                     case "average price":
                         store = new ProductStore(products, new CounterAveragePrice());
-                        store.CountByCommand(products);
+                        Console.WriteLine("Average price of all products: " + store.CountByCommand(products));
                         break;
                     case "average price type":
                         Console.WriteLine("Enter the type of product for calculation of average price...");
                         string typeForAveragePrice = Console.ReadLine();
                         store = new ProductStore(ChooseTypeOfProduct(typeForAveragePrice, products), new CounterAveragePrice());
-                        store.CountByCommand(products);
+                        Console.WriteLine("Average price for one type product: " + store.CountByCommand(products));
                         break;
                     case "exit": 
                         isSuccess = false;
@@ -75,7 +75,7 @@ namespace TaskDEV6
         /// <param name="stringArgument">Needed type</param>
         /// <param name="list">List of added products</param>
         /// <returns>New list for counting of average price of type</returns>
-        public List<ProductCreator> ChooseTypeOfProduct(string stringArgument, List<ProductCreator> list)
+        private List<ProductCreator> ChooseTypeOfProduct(string stringArgument, List<ProductCreator> list)
         {
             List<ProductCreator> tempList = new List<ProductCreator>();
             tempList.AddRange(list);
