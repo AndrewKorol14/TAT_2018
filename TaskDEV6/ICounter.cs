@@ -5,7 +5,7 @@ namespace TaskDEV6
     /// <summary>
     /// Determines the function of counting 
     /// </summary>
-    interface ICounter
+    public interface ICounter
     {
         double CountByCommand(List<ProductCreator> list);
     }

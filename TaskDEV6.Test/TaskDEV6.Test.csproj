@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="CommandMenuCreatorTests.cs" />
     <Compile Include="CounterAllTests.cs" />
+    <Compile Include="CounterAveragePriceTests.cs" />
+    <Compile Include="CounterTypesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

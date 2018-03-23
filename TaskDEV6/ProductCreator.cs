@@ -11,7 +11,7 @@ namespace TaskDEV6
         string nameOfProduct;
         int quantityOfProducts;
         double priceOfProduct;
-
+        
         public ProductCreator(string typeOfProduct, string nameOfProduct, string quantityOfProducts, string priceOfProduct)
         {
             this.typeOfProduct = typeOfProduct;
@@ -22,7 +22,7 @@ namespace TaskDEV6
                 throw new ArgumentException("Quantity of products must be positive");
             }
             this.priceOfProduct = Double.Parse(priceOfProduct);
-            if (this.priceOfProduct < 0.0)
+            if (this.priceOfProduct <= 0.0)
             {
                 throw new ArgumentException("Price of products must be positive");
             }

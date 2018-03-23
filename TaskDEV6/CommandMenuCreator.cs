@@ -31,7 +31,7 @@ namespace TaskDEV6
                         break;
                     case "count all":
                         store = new ProductStore(products, new CounterAll());
-                        Console.WriteLine("Number of all products: "+store.CountByCommand(products));
+                        Console.WriteLine("Number of all products: " + store.CountByCommand(products));
                         break;
                     case "average price":
                         store = new ProductStore(products, new CounterAveragePrice());

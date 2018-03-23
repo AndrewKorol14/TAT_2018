@@ -18,7 +18,7 @@ namespace TaskDEV6
             double priceProducts = 0;
             foreach(ProductCreator i in list)
             {
-                priceProducts += (i.ProductPrice*i.ProductQuantity);
+                priceProducts += (i.ProductPrice * i.ProductQuantity);
                 counterAllProducts += i.ProductQuantity;
             }
             priceProducts /= counterAllProducts;

@@ -5,7 +5,7 @@ namespace TaskDEV6
     /// <summary>
     /// Create storage for products
     /// </summary>
-    class ProductStore
+    public class ProductStore
     {
         List<ProductCreator> productStorage;
 

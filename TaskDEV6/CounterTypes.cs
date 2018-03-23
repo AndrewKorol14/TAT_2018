@@ -18,7 +18,7 @@ namespace TaskDEV6
             tempList.AddRange(list);
             for (int i = 0; i < tempList.Count - 1; i++)
             {
-                for (int j = i + 1; j < tempList.Count; j++)
+                for(int j = tempList.Count - 1; j > i; j--)
                 {
                     if (Equals(tempList[i].ProductType, tempList[j].ProductType))
                     {
