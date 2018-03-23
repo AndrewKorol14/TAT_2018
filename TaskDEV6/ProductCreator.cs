@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TaskDEV6
 {
@@ -17,9 +18,15 @@ namespace TaskDEV6
             this.typeOfProduct = typeOfProduct;
             this.nameOfProduct = nameOfProduct;
             this.quantityOfProducts = Int32.Parse(quantityOfProducts);
-            if (this.quantityOfProducts < 0)
+            if (this.quantityOfProducts <= 0)
             {
                 throw new ArgumentException("Quantity of products must be positive");
+            }
+            char separatorOfRealValue = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            if (!Double.TryParse(priceOfProduct, out this.priceOfProduct))
+            {
+                priceOfProduct = priceOfProduct.Replace('.', separatorOfRealValue);
+                priceOfProduct = priceOfProduct.Replace(',', separatorOfRealValue);
             }
             this.priceOfProduct = Double.Parse(priceOfProduct);
             if (this.priceOfProduct <= 0.0)
