@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace TaskDEV7
 {
@@ -52,7 +53,15 @@ namespace TaskDEV7
             catch(FormatException ex)
             {
                 Console.WriteLine(ex.Message);
-            }            
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

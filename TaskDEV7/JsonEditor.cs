@@ -8,7 +8,7 @@ namespace TaskDEV7
     /// <summary>
     /// Create deserializer and serializer for JSON-file
     /// </summary>
-    class JsonEditor
+    public class JsonEditor
     {
         /// <summary>
         /// Deserialize JSON-file
@@ -17,18 +17,30 @@ namespace TaskDEV7
         /// <returns>List of cars</returns>
         public List<Car> DeserializeJson(string catalogWay)
         {
-            using (FileStream stream = File.OpenRead(catalogWay))
+            List<Car> cars = new List<Car>();
+            try
             {
-                List<Type> types = new List<Type>();
-                types.Add(typeof(Ford)); 
-                types.Add(typeof(BMW));
-                types.Add(typeof(Honda));
-                types.Add(typeof(VAZ));
-                types.Add(typeof(Tesla));
-                DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(List<Car>), types);
-                List<Car> cars = (List<Car>)deserializer.ReadObject(stream);
-                return cars;
+                using (FileStream stream = File.OpenRead(catalogWay))
+                {
+                    List<Type> types = new List<Type>();
+                    types.Add(typeof(Ford));
+                    types.Add(typeof(BMW));
+                    types.Add(typeof(Honda));
+                    types.Add(typeof(VAZ));
+                    types.Add(typeof(Tesla));
+                    DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(List<Car>), types);
+                    cars = (List<Car>)deserializer.ReadObject(stream);
+                }
             }
+            catch(DirectoryNotFoundException ex)
+            {
+                throw new DirectoryNotFoundException(ex.Message);
+            }
+            catch(FileNotFoundException ex)
+            {
+                throw new FileNotFoundException(ex.Message);
+            }
+            return cars;
         }
 
         /// <summary>
@@ -37,11 +49,22 @@ namespace TaskDEV7
         /// <param name="carToStorage">List of car, which enter into JSON-file</param>
         public void SerializeJson(List<Car> carToStorage)
         {
-            using (FileStream stream = new FileStream("C:\\Users\\Король Андрей\\Documents\\GitHub\\TAT_2018\\TaskDEV7\\CarStore.json",
-                FileMode.Open))
+            try
             {
-                DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Car>));
-                jsonFormatter.WriteObject(stream, carToStorage);
+                using (FileStream stream = new FileStream("C:\\Users\\Король Андрей\\Documents\\GitHub\\TAT_2018\\TaskDEV7\\CarStore.json",
+                FileMode.Open))
+                {
+                    DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Car>));
+                    jsonFormatter.WriteObject(stream, carToStorage);
+                }
+            }
+            catch(DirectoryNotFoundException ex)
+            {
+                throw new DirectoryNotFoundException(ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new FileNotFoundException(ex.Message);
             }
         }
     }
