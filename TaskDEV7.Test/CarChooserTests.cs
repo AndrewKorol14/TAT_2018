@@ -26,7 +26,7 @@ namespace TaskDEV7.Test
         }
 
         [TestMethod]
-        public void FindPossibleEquipments_ContainAllCars_ListOfPossibleCars()
+        public void FindPossibleEquipments_ContainOneCar_ListOfPossibleCars()
         {
             List<Car> testCar = new List<Car>();
             List<Car> expectedCar = new List<Car>();
@@ -35,6 +35,43 @@ namespace TaskDEV7.Test
             testCar.Add(new Honda("Civic", "sedan", "automatic", "petrol", "2.0", "200", "air conditioner", "leather"));
             List<string> testFeatures = new List<string>() { "2101", "sedan", "manual", "petrol", "1.2", "70", "no", "textile" };
             expectedCar.Add(new VAZ("2101", "sedan", "manual", "petrol", "1.2", "70", "no", "textile"));
+            CarChooser testChooser = new CarChooser();
+            List<Car> actualCars = testChooser.FindPossibleEquipments(testCar, testFeatures);
+            for (int i = 0; i < actualCars.Count; i++)
+            {
+                Assert.AreEqual(expectedCar[i], actualCars[i]);
+            }
+        }
+
+        [TestMethod]
+        public void FindPossibleEquipments_ContainAllCars_ListOfPossibleCars()
+        {
+            List<Car> testCar = new List<Car>();
+            List<Car> expectedCar = new List<Car>();
+            testCar.Add(new Honda("Civic", "sedan", "manual", "petrol", "2.0", "200", "air conditioner", "textile"));
+            testCar.Add(new VAZ("2101", "sedan", "manual", "petrol", "1.2", "70", "no", "textile"));
+            testCar.Add(new Honda("Civic", "sedan", "automatic", "petrol", "2.0", "200", "air conditioner", "leather"));
+            List<string> testFeatures = new List<string>() { "\n", "\n", "\n", "\n", "\n", "\n", "\n", "\n" };
+            expectedCar.Add(new Honda("Civic", "sedan", "manual", "petrol", "2.0", "200", "air conditioner", "textile"));
+            expectedCar.Add(new VAZ("2101", "sedan", "manual", "petrol", "1.2", "70", "no", "textile"));
+            expectedCar.Add(new Honda("Civic", "sedan", "automatic", "petrol", "2.0", "200", "air conditioner", "leather"));
+            CarChooser testChooser = new CarChooser();
+            List<Car> actualCars = testChooser.FindPossibleEquipments(testCar, testFeatures);
+            for (int i = 0; i < actualCars.Count; i++)
+            {
+                Assert.AreEqual(expectedCar[i], actualCars[i]);
+            }
+        }
+
+        [TestMethod]
+        public void FindPossibleEquipments_ContainNothing_ListOfPossibleCars()
+        {
+            List<Car> testCar = new List<Car>();
+            List<Car> expectedCar = new List<Car>();
+            testCar.Add(new Honda("Civic", "sedan", "manual", "petrol", "2.0", "200", "air conditioner", "textile"));
+            testCar.Add(new VAZ("2101", "sedan", "manual", "petrol", "1.2", "70", "no", "textile"));
+            testCar.Add(new Honda("Civic", "sedan", "automatic", "petrol", "2.0", "200", "air conditioner", "leather"));
+            List<string> testFeatures = new List<string>() { "Ferrari", "\n", "\n", "\n", "\n", "\n", "\n", "\n" };
             CarChooser testChooser = new CarChooser();
             List<Car> actualCars = testChooser.FindPossibleEquipments(testCar, testFeatures);
             for (int i = 0; i < actualCars.Count; i++)
