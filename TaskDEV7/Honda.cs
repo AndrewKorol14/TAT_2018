@@ -43,35 +43,35 @@ namespace TaskDEV7
             this.cabin = cabin;
         }
 
-        //[DataMember]
+        [DataMember]
         public override string Model
         {
             get { return model; }
             set { model = value; }
         }
 
-        //[DataMember]
+        [DataMember]
         public override string BodyStyle
         {
             get { return bodyStyle; }
             set { bodyStyle = value; }
         }
 
-        //[DataMember]
+        [DataMember]
         public override string Transmission
         {
             get { return transmission; }
             set { transmission = value; }
         }
 
-        //[DataMember]
+        [DataMember]
         public override string Engine
         {
             get { return engine; }
             set { engine = value; }
         }
 
-        //[DataMember]
+        [DataMember]
         public override string Capacity
         {
             get { return capacity; }
@@ -85,7 +85,7 @@ namespace TaskDEV7
             set { power = value; }
         }
 
-        //[DataMember]
+        [DataMember]
         public override string Climate
         {
             get { return climate; }

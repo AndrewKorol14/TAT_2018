@@ -6,7 +6,7 @@ namespace TaskDEV7
     /// Describe car of brand 'VAZ'
     /// </summary>
     [DataContract]
-    class VAZ: Car
+    public class VAZ: Car
     {
         [DataMember]
         private string model;

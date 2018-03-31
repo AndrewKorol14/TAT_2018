@@ -7,7 +7,7 @@ namespace TaskDEV7
     /// <summary>
     /// Chooses the car that the client wants to buy
     /// </summary>
-    class CarChooser
+    public class CarChooser
     {
         List<Car> carCatalog;
         JsonEditor catalog;
@@ -21,6 +21,8 @@ namespace TaskDEV7
             catalog = new JsonEditor();
             carCatalog = catalog.DeserializeJson(catalogWay);
         }
+
+        public CarChooser() { }
 
         public List<Car> CarCatalog
         {
