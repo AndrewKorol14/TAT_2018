@@ -1,0 +1,17 @@
+[
+  {
+    "__type": "FileAddress:#hometask_18_04",
+    "address": "https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/dogAndWolf.jpg",
+    "fileName": "file1.jpg"
+  },
+  {
+    "__type": "FileAddress:#hometask_18_04",
+    "address": "https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/dogAndWolf.jpg",
+    "fileName": "file2.jpg"
+  },
+  {
+    "__type": "FileAddress:#hometask_18_04",
+    "address": "https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/C_6_0_Spravochnik_Polnoe_opisanie_yazyka_-_2016.pdf",
+    "fileName":  "file3.jpg"  
+  }
+]

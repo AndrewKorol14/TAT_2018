@@ -9,12 +9,14 @@ namespace hometask_18_04
     {
         List<FileAddress> urls;
         
+        /// <summary>
+        /// Create container for addresses of files, which read from JSON-file
+        /// </summary>
         public UrlСontainer()
         {
             urls = new List<FileAddress>();
-            urls.Add(new FileAddress("https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/dogAndWolf.jpg", "file1.jpg"));
-            urls.Add(new FileAddress("https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/dogAndWolf.jpg", "file2.jpg"));
-            urls.Add(new FileAddress("https://raw.githubusercontent.com/AndrewKorol14/TAT_2018/temp_for_hometask/files_for_downloading/C_6_0_Spravochnik_Polnoe_opisanie_yazyka_-_2016.pdf", "file3.pdf"));
+            JsonDeserializer editor = new JsonDeserializer();
+            urls = editor.DeserializeJson("C:\\Users\\Король Андрей\\Documents\\GitHub\\TAT_2018\\hometask_18_04\\addresses.json");            
         }
 
         public List<FileAddress> Urls
