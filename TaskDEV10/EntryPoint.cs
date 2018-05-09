@@ -25,6 +25,7 @@ namespace TaskDEV10
                 {
                     Console.WriteLine(car);
                 }
+                driver.Quit();
             }
             catch(NoSuchElementException ex)
             {

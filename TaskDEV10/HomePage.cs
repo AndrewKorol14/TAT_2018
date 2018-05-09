@@ -52,7 +52,7 @@ namespace TaskDEV10
         /// <summary>
         /// Get list of model and its number
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of models with quantity</returns>
         public List<Car> GetModelList()
         {
             List<Car> carModels = new List<Car>();

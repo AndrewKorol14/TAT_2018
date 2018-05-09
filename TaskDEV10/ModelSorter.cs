@@ -5,7 +5,7 @@ namespace TaskDEV10
     /// <summary>
     /// Create sorter for list of models
     /// </summary>
-    class ModelSorter
+    public class ModelSorter
     {
         /// <summary>
         /// Sort by descending list of models
