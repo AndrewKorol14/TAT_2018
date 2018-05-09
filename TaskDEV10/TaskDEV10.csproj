@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="ModelSorter.cs" />
-    <Compile Include="CarListPage.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,12 +2,13 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace TaskDEV10
 {
+    /// <summary>
+    /// Create model of home page
+    /// </summary>
     public class HomePage
     {
         IWebDriver driver;
@@ -18,6 +19,53 @@ namespace TaskDEV10
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
+        }        
+
+        /// <summary>
+        /// Choose brand of car in search filter
+        /// </summary>
+        /// <param name="brandName">Name of brand</param>
+        public void ChooseBrand(string brandName)
+        {
+            if(!CheckBrandInList(brandName))
+            {
+                throw new NoSuchElementException("No such brand in list of brands");
+            }
+            WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            brand = waiter.Until(driver => driver.FindElement(By.XPath("//select[@name=\"brand_id[]\"]")));
+            brand = waiter.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(brand));
+            brand.Click();
+            brand = waiter.Until(driver => driver.FindElement(By.XPath("//option[contains(text(), \"" + brandName + "\")]")));
+            brand = waiter.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(brand));
+            brand.Click();
+        }
+
+        /// <summary>
+        /// Set list of model from web page
+        /// </summary>
+        public void SetModelList()
+        {
+            WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            modelList = waiter.Until(driver => driver.FindElements(By.XPath("//select[@name=\"model_id[]\"]/option[@value]")));
+        }
+
+        /// <summary>
+        /// Get list of model and its number
+        /// </summary>
+        /// <returns></returns>
+        public List<Car> GetModelList()
+        {
+            List<Car> carModels = new List<Car>();
+            ModelSorter sorter = new ModelSorter();
+            foreach (IWebElement element in modelList)
+            {                
+                ChooseModel(element.Text);
+                WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+                Thread.Sleep(400);
+                string quantityModel = waiter.Until(driver => driver.FindElement(By.XPath("//span[@class=\"moto-filter-form-counter-bike js-counter-all\"]"))).Text;
+                carModels.Add(new Car(element.Text, GetModelNumber(quantityModel)));
+            }
+            return sorter.SortByDescendingModels(carModels);
         }
 
         private bool CheckBrandInList(string brandName)
@@ -37,41 +85,6 @@ namespace TaskDEV10
             return isContain;
         }
 
-        public void ChooseBrand(string brandName)
-        {
-            if(!CheckBrandInList(brandName))
-            {
-                throw new NoSuchElementException("No such brand in list of brands");
-            }
-            WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            brand = waiter.Until(driver => driver.FindElement(By.XPath("//select[@name=\"brand_id[]\"]")));
-            brand = waiter.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(brand));
-            brand.Click();
-            brand = waiter.Until(driver => driver.FindElement(By.XPath("//option[contains(text(), \"" + brandName + "\")]")));
-            brand = waiter.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(brand));
-            brand.Click();
-        }
-
-        public void SetModelList()
-        {
-            WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            modelList = waiter.Until(driver => driver.FindElements(By.XPath("//select[@name=\"model_id[]\"]/option[@value]")));
-        }
-
-        public List<Car> GetModelList()
-        {
-            List<Car> carModels = new List<Car>();
-            ModelSorter sorter = new ModelSorter();
-            foreach (IWebElement element in modelList)
-            {
-                WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-                ChooseModel(element.Text);
-                string quantityModel = waiter.Until(driver => driver.FindElement(By.XPath("//span[@class=\"moto-filter-form-counter-bike js-counter-all\"]"))).Text;
-                carModels.Add(new Car(element.Text, GetModelNumber(quantityModel)));
-            }
-            return sorter.SortModels(carModels);
-        }
-
         private void ChooseModel(string modelName)
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
@@ -80,7 +93,7 @@ namespace TaskDEV10
             model.Click();
             model = waiter.Until(driver => driver.FindElement(By.XPath("//option[contains(text(), \"" + modelName + "\")]")));
             model = waiter.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(model));
-            model.Click();
+            model.Click();            
         }
 
         private int GetModelNumber(string quantityModel)

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskDEV10
+﻿namespace TaskDEV10
 {
+    /// <summary>
+    /// Create car of certain brand
+    /// </summary>
     public class Car
     {
         private string model;
@@ -29,6 +26,10 @@ namespace TaskDEV10
             set { modelNumber = value; }
         }
 
+        /// <summary>
+        /// Get the string for output
+        /// </summary>
+        /// <returns>String for output</returns>
         public override string ToString()
         {
             return "Model: " + model + " Quantity: " + modelNumber;

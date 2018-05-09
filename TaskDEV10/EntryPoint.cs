@@ -2,12 +2,12 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskDEV10
 {
+    /// <summary>
+    /// Turn to the av.by and call methods for getting models
+    /// </summary>
     class EntryPoint
     {
         static void Main(string[] args)
