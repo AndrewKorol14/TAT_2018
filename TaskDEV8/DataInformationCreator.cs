@@ -51,7 +51,7 @@ namespace TaskDEV8
             }
             else
             {
-                return null;
+                return new List<String>();
             }
         }
     }
