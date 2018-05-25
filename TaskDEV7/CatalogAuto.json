@@ -1,0 +1,101 @@
+[
+  {
+    "__type": "Honda:#TaskDEV7",
+    "model": "Civic",
+    "bodyStyle": "sedan",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "2.4",
+    "power": "201",
+    "climate": "climate control",
+    "cabin": "leather"
+  },
+  {
+    "__type": "BMW:#TaskDEV7",
+    "model": "730d",
+    "bodyStyle": "sedan",
+    "transmission": "automatic",
+    "engine": "diesel",
+    "capacity": "3.0",
+    "power": "285",
+    "climate": "climate control",
+    "cabin": "leather"
+  },
+  {
+    "__type": "Ford:#TaskDEV7",
+    "model": "Mondeo",
+    "bodyStyle": "sedan",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "1.0",
+    "power": "125",
+    "climate": "air conditioner",
+    "cabin": "textile"
+  },
+  {
+    "__type": "Honda:#TaskDEV7",
+    "model": "Civic",
+    "bodyStyle": "sedan",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "1.8",
+    "power": "142",
+    "climate": "air conditioner",
+    "cabin": "combined"
+  },
+  {
+    "__type": "Tesla:#TaskDEV7",
+    "model": "Model 3",
+    "bodyStyle": "sedan",
+    "transmission": "automatic",
+    "engine": "electric",
+    "capacity": "no",
+    "power": "258",
+    "climate": "climate control",
+    "cabin": "leather"
+  },
+  {
+    "__type": "Honda:#TaskDEV7",
+    "model": "Civic",
+    "bodyStyle": "station wagon",
+    "transmission": "manual",
+    "engine": "diesel",
+    "capacity": "1.6",
+    "power": "120",
+    "climate": "air conditioner",
+    "cabin": "textile"
+  },
+  {
+    "__type": "VAZ:#TaskDEV7",
+    "model": "2103",
+    "bodyStyle": "sedan",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "1.5",
+    "power": "75",
+    "climate": "no",
+    "cabin": "textile"
+  },
+  {
+    "__type": "Honda:#TaskDEV7",
+    "model": "Civic",
+    "bodyStyle": "station wagon",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "1.8",
+    "power": "142",
+    "climate": "air conditioner",
+    "cabin": "combined"
+  },
+  {
+    "__type": "Honda:#TaskDEV7",
+    "model": "Freed",
+    "bodyStyle": "minivan",
+    "transmission": "manual",
+    "engine": "petrol",
+    "capacity": "1.5",
+    "power": "118",
+    "climate": "climate control",
+    "cabin": "textile"
+  }
+]
