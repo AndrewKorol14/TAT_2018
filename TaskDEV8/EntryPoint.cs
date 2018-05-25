@@ -7,6 +7,8 @@ namespace TaskDEV8
     /// </summary>
     class EntryPoint
     {
+        private static string namesakeFileWay = "C:\\Users\\Король Андрей\\Documents\\GitHub\\TAT_2018\\TaskDEV8\\namesakes.json";
+
         static void Main(string[] args)
         {
             try
@@ -39,7 +41,7 @@ namespace TaskDEV8
                 Console.WriteLine(namesake);
             }
             JsonFileWriter writer = new JsonFileWriter();
-            writer.SerializeJson(e.Namesakes, "C:\\Users\\Король Андрей\\Documents\\GitHub\\TAT_2018\\TaskDEV8\\namesakes.json");
+            writer.SerializeJson(e.Namesakes, namesakeFileWay);
         }
     }
 }

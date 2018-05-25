@@ -20,7 +20,7 @@ namespace TaskDEV8.Test
         }
 
         [Test]
-        public void FindOldestUsers_OneOldestUser_OldestUser()
+        public void FindOldestUsers_OldestUser_OldestUser()
         {
             DataInformationCreator dataInfo = new DataInformationCreator();
             List<User> users = new List<User>();
