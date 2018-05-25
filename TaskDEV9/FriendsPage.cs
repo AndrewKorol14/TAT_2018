@@ -13,10 +13,12 @@ namespace TaskDEV9
         private IWebDriver driver;
         private IList<IWebElement> friendList;
         private IWebElement friendContainer;
+        private Locators.FriendsPageLocators locator;
 
         public FriendsPage(IWebDriver driver)
         {
             this.driver = driver;
+            locator = new Locators.FriendsPageLocators();
         }
 
         /// <summary>
@@ -27,13 +29,13 @@ namespace TaskDEV9
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            friendContainer = waiter.Until(driver => driver.FindElement(By.ClassName("friends_list_bl")));
-            IWebElement friendCount = waiter.Until(driver => driver.FindElement(By.XPath("//*[@id=\"friends_tab_all\"]//*[@class=\"ui_tab_count\"]")));
-            friendList = friendContainer.FindElements(By.XPath("//*[@class=\"friends_field friends_field_title\"]"));
+            friendContainer = waiter.Until(driver => driver.FindElement(By.ClassName(locator.FriendsListLocator)));
+            IWebElement friendCount = waiter.Until(driver => driver.FindElement(By.XPath(locator.FriendsCountLocator)));
+            friendList = friendContainer.FindElements(By.XPath(locator.FriendTitleLocator));
             while (friendCount.Text!=friendList.Count.ToString())
             {
-                js.ExecuteScript("window.scrollBy(0, document.body.scrollHeight)");
-                friendList = friendContainer.FindElements(By.XPath("//*[@class=\"friends_field friends_field_title\"]"));
+                js.ExecuteScript(locator.FriendsListScrollerLocator);
+                friendList = friendContainer.FindElements(By.XPath(locator.FriendTitleLocator));
             }
             return friendList;
         }

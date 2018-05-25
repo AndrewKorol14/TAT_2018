@@ -11,19 +11,21 @@ namespace TaskDEV9
     {
         private IWebDriver driver;
         private IWebElement logoutLabel;
+        private Locators.LogoutPageLocators locator;
 
         public LogoutPage(IWebDriver driver)
         {
             this.driver = driver;
+            locator = new Locators.LogoutPageLocators();
         }
 
         public void LogoutFromVk()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            logoutLabel = waiter.Until(driver => driver.FindElement(By.ClassName("top_profile_name")));
+            logoutLabel = waiter.Until(driver => driver.FindElement(By.ClassName(locator.LogoutMenuLocator)));
             logoutLabel = waiter.Until(ExpectedConditions.ElementToBeClickable(logoutLabel));
             logoutLabel.Click();
-            logoutLabel = waiter.Until(driver => driver.FindElement(By.Id("top_logout_link")));
+            logoutLabel = waiter.Until(driver => driver.FindElement(By.Id(locator.LogoutLabelLocator)));
             logoutLabel = waiter.Until(ExpectedConditions.ElementToBeClickable(logoutLabel));
             logoutLabel.Click();
         }

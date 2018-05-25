@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FriendsPage.cs" />
+    <Compile Include="Locators.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="LogoutPage.cs" />
     <Compile Include="MessagesPage.cs" />

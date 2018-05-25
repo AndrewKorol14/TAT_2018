@@ -13,10 +13,12 @@ namespace TaskDEV9
         private IWebElement messagesLabel;
         private IWebElement friendsLabel;
         private IWebElement lastNews;
+        private Locators.NewsPageLocators locator;
 
         public NewsPage(IWebDriver driver)
         {
             this.driver = driver;
+            locator = new Locators.NewsPageLocators();
         }
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace TaskDEV9
         public string GetLastNews()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            lastNews = waiter.Until(driver => driver.FindElement(By.XPath("//div[@id=\"feed_rows\"]/div[1]")));
+            lastNews = waiter.Until(driver => driver.FindElement(By.XPath(locator.LastNewsLocator)));
             lastNews = waiter.Until(ExpectedConditions.ElementToBeClickable(lastNews));
             return lastNews.Text;
         }
@@ -38,7 +40,7 @@ namespace TaskDEV9
         public MessagesPage GoToMessages()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            messagesLabel = waiter.Until(driver => driver.FindElement(By.Id("l_msg")));
+            messagesLabel = waiter.Until(driver => driver.FindElement(By.Id(locator.MessagesLabelLocator)));
             messagesLabel = waiter.Until(ExpectedConditions.ElementToBeClickable(messagesLabel));
             messagesLabel.Click();
             return new MessagesPage(driver);
@@ -51,7 +53,7 @@ namespace TaskDEV9
         public FriendsPage GoToFriends()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            friendsLabel = waiter.Until(driver => driver.FindElement(By.Id("l_fr")));
+            friendsLabel = waiter.Until(driver => driver.FindElement(By.Id(locator.FriendsLabelLocator)));
             friendsLabel = waiter.Until(ExpectedConditions.ElementToBeClickable(friendsLabel));
             friendsLabel.Click();
             return new FriendsPage(driver);

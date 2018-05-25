@@ -12,10 +12,12 @@ namespace TaskDEV9
         private IWebDriver driver;
         private IWebElement lastDialog;
         private IWebElement lastMessage;
+        private Locators.MessagesPageLocators locator;
         
         public MessagesPage(IWebDriver driver)
         {
             this.driver = driver;
+            locator = new Locators.MessagesPageLocators();
         }
 
         /// <summary>
@@ -24,7 +26,7 @@ namespace TaskDEV9
         public void OpenLastDialog()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            lastDialog = waiter.Until(driver => driver.FindElement(By.XPath("//*[@id=\"im_dialogs\"]//li[1]")));
+            lastDialog = waiter.Until(driver => driver.FindElement(By.XPath(locator.LastDialogLocator)));
             lastDialog = waiter.Until(ExpectedConditions.ElementToBeClickable(lastDialog));
             lastDialog.Click();
         }
@@ -36,7 +38,7 @@ namespace TaskDEV9
         public string GetLastMessage()
         {
             WebDriverWait waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            lastMessage = waiter.Until(driver => driver.FindElement(By.XPath("//div[@class=\"_im_peer_history im-page-chat-contain\"]/div[last()]//li[last()]")));
+            lastMessage = waiter.Until(driver => driver.FindElement(By.XPath(locator.LastMessageLocator)));
             lastMessage = waiter.Until(ExpectedConditions.ElementToBeClickable(lastMessage));
             return lastMessage.Text;
         }

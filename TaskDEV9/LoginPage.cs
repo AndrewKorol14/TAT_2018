@@ -11,10 +11,12 @@ namespace TaskDEV9
         private IWebElement loginField;
         private IWebElement passwordField;
         private IWebElement loginButton;
+        private Locators.LoginPageLocators locator;
 
         public LoginPage(IWebDriver driver)
         {
             this.driver = driver;
+            locator = new Locators.LoginPageLocators();
         } 
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace TaskDEV9
         /// </summary>
         public void GoToPage()
         {
-            driver.Navigate().GoToUrl("https://vk.com");            
+            driver.Navigate().GoToUrl(locator.VkPageLocator);            
         }     
         
         /// <summary>
@@ -33,11 +35,11 @@ namespace TaskDEV9
         /// <returns>News page, or home page for VK</returns>
         public NewsPage LoginIntoVk(string login, string password)
         {
-            loginField = driver.FindElement(By.Id("index_email"));
+            loginField = driver.FindElement(By.Id(locator.EmailFieldLocator));
             loginField.SendKeys(login);
-            passwordField = driver.FindElement(By.Id("index_pass"));
+            passwordField = driver.FindElement(By.Id(locator.PasswordFieldLocator));
             passwordField.SendKeys(password);
-            loginButton = driver.FindElement(By.Id("index_login_button"));
+            loginButton = driver.FindElement(By.Id(locator.LoginButtonLocator));
             loginButton.Click();
             return new NewsPage(driver);
         }        
